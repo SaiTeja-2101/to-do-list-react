@@ -208,7 +208,7 @@ function Todo() {
                     )}
                   </span>
                   <span className="right-icons">
-                    <FaStar onClick={() => addFavourites(index)} style={{ cursor: "pointer", color: task.starred ? "#f1ca05 " : "grey" }} />
+                    <FaStar onClick={() => addFavourites(index)} style={{ cursor: "pointer", color: task.starred ? "#f1ca05 " : "#d3d3d3" }} />
                     <TiDelete onClick={() => deleteTask(index)} style={{ cursor: "pointer" }} />
                   </span>
                 </li>
