@@ -112,6 +112,7 @@ function Todo() {
       <div className="todo-wrapper">
         <div className="todo-input">
           <input type="text" className="add-task" placeholder="Add a new task..." value={input} onChange={((e) => setInput(e.target.value))} />
+          <div className="add-date-label">
           <input
             type="date"
             className="add-date"
@@ -119,7 +120,9 @@ function Todo() {
             onChange={e => setDueDate(e.target.value)}
             style={{ marginLeft: "10px", padding: "10px", fontSize: "1.2rem", border: "1px solid #ccc", borderRadius: "22px" }}
           />
+        
           <button className="add-button" onClick={addTasks}><i className="fa-solid fa-plus"></i></button>
+            </div>
         </div>
         <div className="btn-area">
           <button className={`btn ${btnvalue === "All" && "active"}`} onClick={() => setBtnValue("All")} >All</button>

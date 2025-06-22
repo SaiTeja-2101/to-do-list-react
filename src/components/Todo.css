@@ -167,19 +167,18 @@ body{
     .App {
     width: 98vw;
     padding: 1rem 0.5rem 2rem 0.5rem;
-    
   }
   .add-task {
-    width: 210px;
-    max-width:95vw;
+    width: 100%
   }
   .add-button{
     width:34px;
     margin-left:4px
   }
   .todo-input {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
   }
   .item{
     width: 100%;
@@ -194,12 +193,17 @@ body{
     width:60px;
     font-size: 0.8rem;
   }
-  .add-date{
-    margin-left:6px;
-    padding:8px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 22px;
-    width:96px;
+  .add-date-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+   .btn-area span div {
+    left: auto !important;
+    right: 0;
+    transform: translateX(-10%);
+    max-width: 200px;
   }
 }
+
