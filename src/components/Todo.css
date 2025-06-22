@@ -68,7 +68,7 @@ body{
   color: black;
   opacity: 0.8; 
 }
-.add-data-label{
+.add-date-label{
   display:flex;
   /* flex-direction: row; */
 }
