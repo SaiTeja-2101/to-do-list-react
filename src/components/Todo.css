@@ -175,7 +175,7 @@ body{
     padding: 1rem 0.5rem 2rem 0.5rem;
   }
   .add-task {
-    width: 90%;
+    width: 85%;
     margin-left:15px;
   }
   .add-button{
@@ -217,7 +217,10 @@ body{
   }
   .todo-list ul{
     margin-left:20px;
-    width:90%;
+    width:85%;
+  }
+  .task-text{
+    font-size:1 rem;
   }
 }
 
