@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 import { RiCheckboxBlankCircleLine } from "react-icons/ri";
 import { RiCheckboxCircleFill } from "react-icons/ri";
+import { FaCalendar } from "react-icons/fa";
 // import { FaSortAmountDown } from "react-icons/fa";
 import './Todo.css';
 import { UserButton } from "@clerk/clerk-react";
@@ -177,7 +178,7 @@ function Todo() {
                   <option value="None" style={{ paddingBottom: "10px" }}>None</option>
                   <option value="DueDate" style={{ paddingTop: "10px", paddingBottom: "10px", borderTop: "2px solid grey", borderBottom: "2px solid grey" }}>Due Date</option>
                   <option value="Alphabetical" style={{ paddingTop: "10px", paddingBottom: "10px", borderBottom: "2px solid grey" }}>A-Z</option>
-                  <option value="Important" style={{ paddingTop: "10px", paddingBottom: "10px" }}>Important</option>
+                  <option value="Important" style={{ paddingTop: "10px", paddingBottom: "10px" }}>Pin To Task</option>
                 </select>
               </div>
             )}
@@ -195,9 +196,15 @@ function Todo() {
                   <span className="task-text" style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
                     {task.text}
                     {task.dueDate && (
-                      <span style={{ fontSize: "0.9em", color: "black", marginLeft: "10px", fontWeight: "lighter" }}>
-                        (Due: {task.dueDate})
-                      </span>
+                      <div style={{ fontSize: "1rem", color: "black", marginLeft: "10px", fontWeight: "lighter" }}>
+                       <FaCalendar style={{ marginLeft: "0px" }} /> {(() => {
+                          const date = new Date(task.dueDate);
+                         const weekday = date.toLocaleDateString("en-GB", { weekday: "short" });
+                          const day = date.getDate();
+                          const month = date.toLocaleDateString("en-GB", { month: "short" });
+                           return `${weekday}, ${day} ${month}`;
+                       })()}
+                      </div>
                     )}
                   </span>
                   <span className="right-icons">
