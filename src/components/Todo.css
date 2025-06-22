@@ -170,12 +170,12 @@ body{
     
   }
   .add-task {
-    width: 230px;
+    width: 210px;
     max-width:95vw;
   }
   .add-button{
     width:34px;
-    margin-left:5px
+    margin-left:4px
   }
   .todo-input {
     flex-direction: row;
@@ -195,11 +195,11 @@ body{
     font-size: 0.8rem;
   }
   .add-date{
-    margin-left:8px;
+    margin-left:6px;
     padding:8px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 22px;
-    width:100px;
+    width:96px;
   }
 }
