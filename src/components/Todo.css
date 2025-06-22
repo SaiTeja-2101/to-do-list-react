@@ -9,7 +9,7 @@ body{
   align-items: flex-start;
   min-height: 100vh;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url("src/assets/bgimg.jpg");
+  background-image: url("/bgimg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
