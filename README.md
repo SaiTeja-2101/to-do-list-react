@@ -189,11 +189,6 @@ Akula Sai Teja
 - GitHub: [@SaiTeja-2101](https://github.com/SaiTeja-2101)
 - Email: akulasaiteja2006@gmail.com
 
-## 🙏 Acknowledgments
-
-- [Clerk](https://clerk.com) for authentication services
-- [React Icons](https://react-icons.github.io/react-icons/) for beautiful icons
-- [Vite](https://vitejs.dev/) for blazing fast development experience
 
 ## 🐛 Known Issues
 
