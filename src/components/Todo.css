@@ -9,11 +9,8 @@ body{
   align-items: flex-start;
   min-height: 100vh;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url("/bgimg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
+  background: linear-gradient(135deg, #facc15 0%, #e11d48 50%, #7e22ce 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
 }
 .App{
   display:flex;
@@ -23,18 +20,10 @@ body{
   width:950px;
   max-width:95vw;
   color:black;
-  border-radius: 20px;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5)  ;
   gap:30px;
-  backdrop-filter: blur(4px);
   border:3px solid rgba(255, 255, 255, 0.18);
-  /* padding-left:100px ;
-  padding-right:100px ;
-  padding-top:30px ;
-  padding-bottom:100px ; */
   padding:2rem 7rem 5rem 7rem;
-  margin-top:10px
- 
+  margin-top:10px;
 }
 .App h1{
   font-size: 2.5rem;
@@ -49,7 +38,7 @@ body{
   justify-content: center;
   width:100%;
   align-items: center;
-  
+  font-family:'Poppins', sans-serif;
 }
 .add-task{
   width:580px;
@@ -59,7 +48,7 @@ body{
   outline:none;
   margin-left:0;
   border:none;
-  background:#fae6fc;
+  background:#F4EEFF;
   color:black;
   box-shadow: 0px 3px 5px rgb(43, 42, 42);
 
@@ -70,7 +59,6 @@ body{
 }
 .add-date-label{
   display:flex;
-  /* flex-direction: row; */
 }
 .add-button{
   border-radius: 50%;
@@ -84,11 +72,12 @@ body{
   outline:none;
   border:4px solid rgba(255,255,255,0.18);
   transition:all 0.2s ease-in-out;
-  height:40px
+  height:40px;
+  background: #efc3f5;
 }
 .add-button:hover{
   transform:scale(1.1);
-
+  background: #faa6ff;
 }
 
 .btn-area{
@@ -110,14 +99,17 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0c5f4;
+  background-color: #396ef2;
+  color: white;
+  /* font-size: medium; */
+  font-weight:500;
+  font-family: 'verdana', sans-serif;
 }
 .btn:hover{
-
   transform: scale(1.1);
 }
 .btn.active{
-  background: #8ac0f3 ;
+  background: #a427d3;
 }
 .todo-list{
   display:flex;
@@ -125,7 +117,6 @@ body{
   align-items: center;
   justify-content: space-between;
   margin-top:16px
-  
 }
 .todo-list ul{
   list-style: none;
@@ -146,6 +137,7 @@ body{
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
+  background-color: #F5EFFF;
 }
 .left-icon {
   margin-right: 10px;
@@ -169,6 +161,25 @@ body{
   font-size: 2rem;
   cursor: pointer;
 }
+
+@keyframes slideIn3D {
+  0% {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0deg) rotateY(-10deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+  }
+}
+
+.item-animate {
+  animation: slideIn3D 0.4s ease-out;
+  will-change: transform, opacity;
+}
+
 @media (max-width:600px){
     .App {
     width: 98vw;
