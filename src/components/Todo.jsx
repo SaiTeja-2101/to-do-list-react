@@ -18,8 +18,8 @@ function Todo() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [sortBy, setSortBy] = useState("None");
   const [showSort, setShowSort] = useState(false);
-  const [dueDate, setDueDate] = useState("")
-  
+  const [dueDate, setDueDate] = useState("");
+  const [animateList, setAnimateList] = useState(false);
  
   function addTasks() {
     if (input.trim() === "") {
@@ -85,7 +85,11 @@ function Todo() {
   else {
     sortedTasks = filteredTasks; // No sorting applied
   }
-  
+  const handleFilterClick = (val) => {
+    setBtnValue(val);
+    setAnimateList(false);
+    setTimeout(() => setAnimateList(true), 10); // trigger animation
+  };
   return (
     <div className="App">
 
@@ -98,7 +102,7 @@ function Todo() {
   }}>
     <h1 style={{ margin: 0 }}>To-Do List</h1>
 
-    {/* Absolute-positioned UserButton */}
+
     <div style={{ position: "absolute", right: 0 }}>
       <UserButton appearance={{
     elements: {
@@ -119,17 +123,17 @@ function Todo() {
             className="add-date"
             value={dueDate}
             onChange={e => setDueDate(e.target.value)}
-            style={{ marginLeft: "10px", padding: "10px", fontSize: "1.2rem", border: "1px solid #ccc", borderRadius: "22px" }}
+            style={{ marginLeft: "10px", padding: "10px", fontSize: "1.2rem", border: "1px solid #ccc", borderRadius: "22px",background: "#F4EEFF"}}
           />
         
           <button className="add-button" onClick={addTasks}><i className="fa-solid fa-plus"></i></button>
             </div>
         </div>
         <div className="btn-area">
-          <button className={`btn ${btnvalue === "All" && "active"}`} onClick={() => setBtnValue("All")} >All</button>
-          <button className={`btn ${btnvalue === "Active" && "active"}`} onClick={() => setBtnValue("Active")}>Upcoming</button>
-          <button className={`btn ${btnvalue === "Completed" && "active"}`} onClick={() => setBtnValue("Completed")}>Completed</button>
-          <button className={`btn ${btnvalue === "Starred" && "active"}`} onClick={() => setBtnValue("Starred")}>Important</button>
+          <button className={`btn ${btnvalue === "All" && "active"}`} onClick={() => handleFilterClick("All")}>All</button>
+          <button className={`btn ${btnvalue === "Active" && "active"}`} onClick={() => handleFilterClick("Active")}>Upcoming</button>
+          <button className={`btn ${btnvalue === "Completed" && "active"}`} onClick={() => handleFilterClick("Completed")}>Completed</button>
+          <button className={`btn ${btnvalue === "Starred" && "active"}`} onClick={() => handleFilterClick("Starred")}>Important</button>
 
           <span style={{ marginLeft: "10px", position: "relative" }}>
             <button 
@@ -155,7 +159,6 @@ function Todo() {
                 background:"white",
                 border: "1px solid #ccc",
                 borderRadius: "6px",
-                // fontSize: "2rem",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                 zIndex: 10
               }}>
@@ -170,7 +173,8 @@ function Todo() {
                     background: "none",
                     padding: "10px 8px",
                     fontSize: "1.3rem",
-                    width: "180px"
+                    width: "180px",
+                    cursor: "pointer"
                   }}
                   size={4}
                 >
@@ -189,7 +193,7 @@ function Todo() {
             {sortedTasks.map((task) => {
               const index = tasks.indexOf(task);
               return (
-                <li key={index} className="item">
+                <li key={index} className={`item ${animateList ? "item-animate" : ""}`}>
                   <span className="left-icon" onClick={() => completedTask(index)} style={{ cursor: "pointer" }}>
                     {task.completed ? <RiCheckboxCircleFill /> : <RiCheckboxBlankCircleLine />}
                   </span>
@@ -208,7 +212,7 @@ function Todo() {
                     )}
                   </span>
                   <span className="right-icons">
-                    <FaStar onClick={() => addFavourites(index)} style={{ cursor: "pointer", color: task.starred ? "#f1ca05 " : "#d3d3d3" }} />
+                    <FaStar onClick={() => addFavourites(index)} style={{ cursor: "pointer", color: task.starred ? "#f1ca05 " : "grey" }} />
                     <TiDelete onClick={() => deleteTask(index)} style={{ cursor: "pointer" }} />
                   </span>
                 </li>
